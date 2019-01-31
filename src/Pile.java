@@ -1,11 +1,11 @@
-import java.util.ArrayList;
+import java.util.Vector;
 
-public class Pila<E> implements Stack<E> {
-    private ArrayList<E> data;
+public class Pile<E> implements Stack<E> {
+    private Vector<E> data;
 
-    public Pila() {
+    public Pile() {
         // post: constructs a new, empty stack
-        data = new ArrayList<>();
+        data = new Vector<E>(2,0);
     }
 
     @Override
@@ -25,7 +25,6 @@ public class Pila<E> implements Stack<E> {
         }
         return null;
     }
-
 
     @Override
     public E peek() {

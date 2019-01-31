@@ -28,7 +28,7 @@ public class Main {
         finalInputArrayList = cleanInput("1 2 + 4 * 3 + 0 / 2 +", acceptedInputs);
 
         Calculator myCalculator = new MyCalculator();
-        Stack<Integer> myPila = new Pila<>();
+        Stack<Integer> myPila = new Pile<>();
         int result;
 
         for (int i = 0; i < finalInputArrayList.size(); i++) {
