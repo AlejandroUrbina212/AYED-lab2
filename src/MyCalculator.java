@@ -13,7 +13,7 @@ public class MyCalculator implements Calculator {
                 result = num1 * num2;
                 break;
             case "/":
-                result = num2 / num1;
+                result = num1 / num2;
 
         }
         return result;

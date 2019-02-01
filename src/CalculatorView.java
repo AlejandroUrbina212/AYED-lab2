@@ -138,8 +138,8 @@ public class CalculatorView {
                     myPila.pop();
                     System.out.println("No se puede dividir entre cero!");
                 } else {
-                    int num1 = myPila.pop();
                     int num2 = myPila.pop();
+                    int num1 = myPila.pop();
                     result = myCalculator.calculate(num1, num2, finalInputArrayList.get(i));
                     myPila.push(result);
                     System.out.println("Se ha ejecutado la operación: " + num2 + " " + finalInputArrayList.get(i) + " " + num1);
