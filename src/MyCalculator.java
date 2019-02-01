@@ -1,6 +1,6 @@
 public class MyCalculator implements Calculator {
     @Override
-    public Integer calculate(Integer num1, Integer num2, String op) {
+    public int calculate(int num1, int num2, String op) {
         int result = -1;
         switch (op) {
             case "+":
