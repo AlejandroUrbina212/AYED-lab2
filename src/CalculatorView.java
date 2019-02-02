@@ -16,11 +16,27 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Calculator view class for display a JavaFX UI
+ */
 public class CalculatorView {
 
+
+    /**
+     * TextArea for show the results
+     */
     TextArea result = new TextArea("...");
+    /**
+     * File chooser for pick the text file with the math expressions
+     */
     final FileChooser fileChooser = new FileChooser();
 
+    /**
+     * To return a cleaned String of the math expression
+     * @param input receives a String, with the full math operation
+     * @param acceptedInputs ArrayList that have the valid operators
+     * @return
+     */
     private static ArrayList<String> cleanInput(String input, ArrayList<String> acceptedInputs) {
         ArrayList<String> stringsArrayList = new ArrayList<>(Arrays.asList(input.trim().split("")));
         ArrayList<String> cleanedInputArrayList = new ArrayList<>();
@@ -32,6 +48,10 @@ public class CalculatorView {
         return cleanedInputArrayList;
     }
 
+    /**
+     * To show the JavFX UI
+     * @param stage Stage of JavaFX where we're gonna render the UI
+     */
     public void showCalculator(Stage stage){
 
         fileChooser.getExtensionFilters().addAll(
@@ -51,12 +71,18 @@ public class CalculatorView {
 
     }
 
+    /**
+     * To return a HBox with two buttons for read file and clear TextArea
+     * @param stage Stage of JavaFX where we're gonna render the UI
+     * @return a filled HBox to add to the UI
+     */
     public HBox addHBox(Stage stage) {
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(15, 12, 15, 12));
         hbox.setSpacing(6);
         hbox.setStyle("-fx-background-color: #455a64;");
 
+        //Button for load the text file
         Button buttonCurrent = new Button("Open File");
         buttonCurrent.setPrefSize(100, 20);
         buttonCurrent.setOnAction(e -> {
@@ -71,7 +97,7 @@ public class CalculatorView {
 
         });
 
-
+        //Button for clear the input data
         Button buttonProjected = new Button("Clear");
         buttonProjected.setPrefSize(100, 20);
         buttonProjected.setOnAction(e -> {
@@ -83,6 +109,11 @@ public class CalculatorView {
         return hbox;
     }
 
+    /**
+     * For read a file line by line
+     * @param file File object which have the math operation
+     * @return an ArrayList of String lines of the file
+     */
     private ArrayList<String> readFile(File file){
         ArrayList<String> lines = new ArrayList<>();
         BufferedReader bufferedReader = null;
@@ -110,6 +141,11 @@ public class CalculatorView {
         return lines;
     }
 
+    /**
+     * For operate a single line, and return the result
+     * @param line String with the math operation
+     * @return the result of that operation, as a String
+     */
     private String operate(String line) {
         ArrayList<String> acceptedInputs = new ArrayList<>();
         for (int index = 0; index <= 9; index++) {
@@ -152,11 +188,16 @@ public class CalculatorView {
         return myPila.toString();
     }
 
+    /**
+     * For add a TextArea to the screen, and show the result
+     * @return a filled HBox to add to the UI
+     */
     public VBox addVBox() {
         VBox vbox = new VBox();
         vbox.setPadding(new Insets(10));
         vbox.setSpacing(8);
 
+        //Adding the TextArea to the VBox
         result.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         vbox.getChildren().add(result);
 
